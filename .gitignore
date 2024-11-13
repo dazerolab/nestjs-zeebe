@@ -1,0 +1,10 @@
+node_modules
+dist
+
+.env
+.cache
+.vscode
+.eslintcache
+.DS_Store
+**/.DS_Store
+

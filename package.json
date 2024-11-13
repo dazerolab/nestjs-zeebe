@@ -1,0 +1,30 @@
+{
+    "name": "@dazerolab/nestjs-zeebe",
+    "version": "1.0.0",
+    "description": "Zeebe integration for NestJs",
+    "main": "dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "nest build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dazerolab/nestjs-zeebe.git"
+    },
+    "keywords": [
+        "camunda",
+        "zeebe",
+        "nestjs"
+    ],
+    "author": "Dazerolab",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/dazerolab/nestjs-zeebe/issues"
+    },
+    "homepage": "https://github.com/dazerolab/nestjs-zeebe#readme",
+    "dependencies": {
+        "@camunda8/sdk": "^8.6.15",
+        "@nestjs/core": "^10.4.7"
+    }
+}
