@@ -1,11 +1,11 @@
 import { Camunda8 } from '@camunda8/sdk';
-import { Camunda8ClientConfiguration } from '@camunda8/sdk/dist/lib';
-import { ZeebeGrpcClient } from '@camunda8/sdk/dist/zeebe';
 import { Module, OnModuleDestroy, DynamicModule, Provider, Logger } from '@nestjs/common';
+import { Configuration } from './configuration.interface';
+import ZeebeService from './zeebe.service';
 
 @Module({})
 export class ZeebeModule implements OnModuleDestroy {
-    public static forRoot(options: Camunda8ClientConfiguration): DynamicModule {
+    public static forRoot(options: Configuration): DynamicModule {
         const optionsProviders: Provider[] = [];
         optionsProviders.push(this.createOptionsProvider(options));
 
@@ -19,7 +19,7 @@ export class ZeebeModule implements OnModuleDestroy {
         };
     }
 
-    private static createOptionsProvider(options: Camunda8ClientConfiguration): Provider {
+    private static createOptionsProvider(options: Configuration): Provider {
         return {
             provide: 'ZEEBE_OPTIONS_PROVIDER',
             useValue: options
@@ -28,8 +28,8 @@ export class ZeebeModule implements OnModuleDestroy {
 
     private static createConnectionProvider(): Provider {
         return {
-            provide: ZeebeGrpcClient,
-            useFactory: async (options: Camunda8ClientConfiguration) => {
+            provide: ZeebeService,
+            useFactory: async (options: Configuration) => {
                 const c8 = new Camunda8(options);
                 const zeebe = c8.getZeebeGrpcApiClient();
 
