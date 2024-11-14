@@ -1,3 +1,4 @@
 export * from './zeebe.module';
 export * from './zeebe.service';
-export * from './configuration.interface';
+export * from './interface/configuration.interface';
+export * from './interface/job.interface';

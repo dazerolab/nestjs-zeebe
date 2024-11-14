@@ -1,6 +1,6 @@
 import { Camunda8 } from '@camunda8/sdk';
 import { Module, OnModuleDestroy, DynamicModule, Provider, Logger } from '@nestjs/common';
-import { Configuration } from './configuration.interface';
+import Configuration from './interface/configuration.interface';
 import ZeebeService from './zeebe.service';
 
 @Module({})
